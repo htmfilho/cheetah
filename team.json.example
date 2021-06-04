@@ -1,0 +1,35 @@
+{
+    "cycle": "Cycle Name",
+    "sprint": "Sprint Name",
+    "scope": [
+        {
+            "name": "Celine Dion",
+            "assignments": [
+                {
+                    "code": "JIRA-123",
+                    "summary": "Do something very interesting"
+                },
+                {
+                    "code": "JIRA-231",
+                    "summary": "Develop something amazing"
+                }
+            ]
+        }, {
+            "name": "John Travolta",
+            "assignments": [
+                {
+                    "code": "JIRA-333",
+                    "summary": "Fix that anoying bug"
+                },
+                {
+                    "code": "JIRA-365",
+                    "summary": "Add tests to complete the coverage"
+                },
+                {
+                    "code": "JIRA-477",
+                    "summary": "Document that complex feature"
+                }
+            ]
+        }
+    ]
+}
