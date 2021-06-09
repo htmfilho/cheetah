@@ -9,16 +9,17 @@ import (
 )
 
 const (
-	// Cerimonies
-	CerimonyStandUp = "StandUp"
+	// Ceremonies
+	CeremonyStandUp = "StandUp"
 )
 
-func RunCerimony(cerimony string, team Team) {
-	fmt.Printf("Cycle:  %s\n", team.Cycle)
+func RunCeremony(ceremony string, team Team) {
+	fmt.Printf("Team  : %s\n", team.Name)
+	fmt.Printf("Cycle : %s\n", team.Cycle)
 	fmt.Printf("Sprint: %s\n", team.Sprint)
 
-	switch cerimony {
-	case CerimonyStandUp:
+	switch ceremony {
+	case CeremonyStandUp:
 		runStandUp(team)
 	default:
 		runStandUp(team)

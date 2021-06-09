@@ -9,7 +9,8 @@ import (
 )
 
 var flgTeamFileName = flag.String("f", "team.json", "Relative or absolute path to the data file.")
-var flgCeremony = flag.String("c", team.CerimonyStandUp, "Cerimony to run.")
+var flgCeremony = flag.String("c", team.CeremonyStandUp, "Cerimony to run.")
+var flgDebug = flag.Bool("d", false, "Run in debug mode, showing extra information.")
 
 func main() {
 	flag.Parse()
@@ -23,7 +24,7 @@ func main() {
 	}
 
 	currentTeam := repo.GetCurrentTeam()
-	team.RunCerimony(*flgCeremony, currentTeam)
+	team.RunCeremony(*flgCeremony, currentTeam)
 }
 
 func printLogo() {
@@ -32,8 +33,11 @@ func printLogo() {
 }
 
 func printFlags() {
-	fmt.Println("\n-----------------------------------------------------------")
-	fmt.Printf("Team File: %s\n", *flgTeamFileName)
-	fmt.Printf("Ceremony : %s\n", *flgCeremony)
-	fmt.Println("-----------------------------------------------------------")
+	if *flgDebug {
+		fmt.Println("==========================================================")
+		fmt.Printf("\nFile     : %s\n", *flgTeamFileName)
+		fmt.Printf("Ceremony : %s\n", *flgCeremony)
+
+	}
+	fmt.Println("==========================================================")
 }
