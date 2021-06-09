@@ -1,6 +1,7 @@
 {
     "cycle": "Cycle Name",
     "sprint": "Sprint Name",
+    "name": "Team Name",
     "scope": [
         {
             "name": "Celine Dion",

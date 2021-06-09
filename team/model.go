@@ -13,5 +13,6 @@ type Member struct {
 type Team struct {
 	Cycle   string   `json:"cycle"`
 	Sprint  string   `json:"sprint"`
+	Name    string   `json:"name"`
 	Members []Member `json:"members"`
 }
