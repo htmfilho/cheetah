@@ -2,16 +2,16 @@
     "cycle": "Cycle Name",
     "sprint": "Sprint Name",
     "name": "Team Name",
-    "scope": [
+    "members": [
         {
             "name": "Celine Dion",
             "assignments": [
                 {
-                    "code": "JIRA-123",
+                    "reference": "JIRA-123",
                     "summary": "Do something very interesting"
                 },
                 {
-                    "code": "JIRA-231",
+                    "reference": "JIRA-231",
                     "summary": "Develop something amazing"
                 }
             ]
@@ -19,15 +19,15 @@
             "name": "John Travolta",
             "assignments": [
                 {
-                    "code": "JIRA-333",
+                    "reference": "JIRA-333",
                     "summary": "Fix that annoying bug"
                 },
                 {
-                    "code": "JIRA-365",
+                    "reference": "JIRA-365",
                     "summary": "Add tests to complete the coverage"
                 },
                 {
-                    "code": "JIRA-477",
+                    "reference": "JIRA-477",
                     "summary": "Document that complex feature"
                 }
             ]
