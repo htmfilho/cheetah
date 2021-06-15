@@ -9,7 +9,6 @@ import (
 )
 
 const (
-	// Ceremonies
 	CeremonyStandUp = "StandUp"
 )
 
@@ -17,7 +16,8 @@ func RunCeremony(ceremony string, team Team) {
 	fmt.Printf("Team  : %s\n", team.Name)
 	fmt.Printf("Cycle : %s\n", team.Cycle)
 	fmt.Printf("Sprint: %s\n", team.Sprint)
-	fmt.Println("----------------------------------------------------------")
+	fmt.Printf("Date  : %v\n", time.Now().Format("January 2, 2006"))
+	fmt.Println("--------------------------------------------------------------------------------")
 
 	switch ceremony {
 	case CeremonyStandUp:
