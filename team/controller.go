@@ -33,9 +33,9 @@ func runStandUp(team Team) {
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(members), func(i, j int) { members[i], members[j] = members[j], members[i] })
 	for _, member := range members {
-		fmt.Printf("| %s is working on:", member.Name)
+		fmt.Printf("%s is working on:", member.Name)
 		for _, assignment := range member.Assignments {
-			fmt.Printf("\n| - %s: %s", assignment.Reference, assignment.Summary)
+			fmt.Printf("\n - %s: %s", assignment.Reference, assignment.Summary)
 		}
 		fmt.Print("\n................................................................................")
 		pause()

@@ -18,6 +18,7 @@ func main() {
 	printLogo()
 	printFlags()
 
+	fmt.Println()
 	var repo team.Repository
 	repo = &team.JsonRepository{
 		File: *flgTeamFileName,
@@ -37,7 +38,6 @@ func printFlags() {
 		fmt.Println("==========================================================")
 		fmt.Printf("\nFile     : %s\n", *flgTeamFileName)
 		fmt.Printf("Ceremony : %s\n", *flgCeremony)
-
+		fmt.Println("==========================================================")
 	}
-	fmt.Println("==========================================================")
 }
