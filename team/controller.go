@@ -35,7 +35,7 @@ func runStandUp(team Team) {
 	for _, member := range members {
 		fmt.Printf("| %s is working on:", member.Name)
 		for _, assignment := range member.Assignments {
-			fmt.Printf("\n| %s: %s", assignment.Reference, assignment.Summary)
+			fmt.Printf("\n| - %s: %s", assignment.Reference, assignment.Summary)
 		}
 		fmt.Print("\n................................................................................")
 		pause()
