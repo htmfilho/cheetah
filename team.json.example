@@ -12,11 +12,13 @@
             "assignments": [
                 {
                     "reference": "JIRA-123",
-                    "summary": "Do something very interesting"
+                    "summary": "Do something very interesting",
+                    "status": "todo"
                 },
                 {
                     "reference": "JIRA-231",
-                    "summary": "Develop something amazing"
+                    "summary": "Develop something amazing",
+                    "status": "progress"
                 }
             ]
         }, {
@@ -24,15 +26,18 @@
             "assignments": [
                 {
                     "reference": "JIRA-333",
-                    "summary": "Fix that annoying bug"
+                    "summary": "Fix that annoying bug",
+                    "status": "done"
                 },
                 {
                     "reference": "JIRA-365",
-                    "summary": "Add tests to complete the coverage"
+                    "summary": "Add tests to complete the coverage",
+                    "status": "progress"
                 },
                 {
                     "reference": "JIRA-477",
-                    "summary": "Document that complex feature"
+                    "summary": "Document that complex feature",
+                    "status": "todo"
                 }
             ]
         }

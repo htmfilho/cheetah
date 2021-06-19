@@ -2,6 +2,12 @@ package team
 
 import "time"
 
+const (
+	AssignmentStatusTodo     = "todo"
+	AssignmentStatusProgress = "progress"
+	AssignmentStatusDone     = "done"
+)
+
 type Sprint struct {
 	Name  string    `json:"name"`
 	Start time.Time `json:"start"`
@@ -21,6 +27,7 @@ func (sprint *Sprint) DaysToEnd() int {
 type Assignment struct {
 	Reference string `json:"reference"`
 	Summary   string `json:"summary"`
+	Status    string `json:"status"`
 }
 
 type Member struct {

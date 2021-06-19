@@ -11,9 +11,11 @@ import (
 const (
 	CeremonyStandUp = "StandUp"
 
-	colorReset = "\033[0m"
-	colorBlue  = "\033[34m"
-	colorRed   = "\033[31m"
+	colorReset  = "\033[0m"
+	colorBlue   = "\033[34m"
+	colorGreen  = "\033[32m"
+	colorRed    = "\033[31m"
+	colorYellow = "\033[33m"
 )
 
 func RunCeremony(ceremony string, team Team) {
@@ -38,10 +40,16 @@ func runStandUp(team Team) {
 	members := team.Members
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(members), func(i, j int) { members[i], members[j] = members[j], members[i] })
+
+	statusColors := make(map[string]string)
+	statusColors[AssignmentStatusTodo] = colorReset
+	statusColors[AssignmentStatusProgress] = colorYellow
+	statusColors[AssignmentStatusDone] = colorGreen
+
 	for _, member := range members {
 		fmt.Printf("%s%s%s is working on:", colorBlue, member.Name, colorReset)
 		for _, assignment := range member.Assignments {
-			fmt.Printf("\n - %s: %s", assignment.Reference, assignment.Summary)
+			fmt.Printf("\n - %s%s: %s%s", statusColors[assignment.Status], assignment.Reference, assignment.Summary, colorReset)
 		}
 		fmt.Print("\n................................................................................")
 		pause()
