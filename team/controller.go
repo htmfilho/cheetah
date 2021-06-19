@@ -10,14 +10,20 @@ import (
 
 const (
 	CeremonyStandUp = "StandUp"
+
+	colorReset = "\033[0m"
+	colorBlue  = "\033[34m"
+	colorRed   = "\033[31m"
 )
 
 func RunCeremony(ceremony string, team Team) {
-	fmt.Printf("Team    : %s\n", team.Name)
-	fmt.Printf("Cycle   : %s\n", team.Cycle)
-	fmt.Printf("Sprint  : %s\n", team.Sprint)
-	fmt.Printf("Ceremony: %v\n", ceremony)
-	fmt.Printf("Date    : %v\n", time.Now().Format("January 2, 2006"))
+	fmt.Printf("Team    : %s%s%s\n", colorBlue, team.Name, colorReset)
+	fmt.Printf("Cycle   : %s%s%s\n", colorBlue, team.Cycle, colorReset)
+	fmt.Printf("Sprint  : %s%s%s\n", colorBlue, team.Sprint.Name, colorReset)
+	fmt.Printf("Ceremony: %s%s%s\n", colorBlue, ceremony, colorReset)
+	fmt.Printf("Date    : %s%v. %s%s day of the sprint. %d days to go!%s\n",
+		colorBlue, time.Now().Format("January 2, 2006"), colorRed, ToOrdinalNumber(team.Sprint.DaysFromStart()),
+		team.Sprint.DaysToEnd(), colorReset)
 	fmt.Println("--------------------------------------------------------------------------------")
 
 	switch ceremony {
@@ -33,7 +39,7 @@ func runStandUp(team Team) {
 	rand.Seed(time.Now().UnixNano())
 	rand.Shuffle(len(members), func(i, j int) { members[i], members[j] = members[j], members[i] })
 	for _, member := range members {
-		fmt.Printf("%s is working on:", member.Name)
+		fmt.Printf("%s%s%s is working on:", colorBlue, member.Name, colorReset)
 		for _, assignment := range member.Assignments {
 			fmt.Printf("\n - %s: %s", assignment.Reference, assignment.Summary)
 		}
