@@ -1,5 +1,23 @@
 package team
 
+import "time"
+
+type Sprint struct {
+	Name  string    `json:"name"`
+	Start time.Time `json:"start"`
+	End   time.Time `json:"end"`
+}
+
+func (sprint *Sprint) DaysFromStart() int {
+	today := time.Now()
+	return int(today.Sub(sprint.Start).Hours()) / 24
+}
+
+func (sprint *Sprint) DaysToEnd() int {
+	today := time.Now()
+	return int(sprint.End.Sub(today).Hours()) / 24
+}
+
 type Assignment struct {
 	Reference string `json:"reference"`
 	Summary   string `json:"summary"`
@@ -12,7 +30,7 @@ type Member struct {
 
 type Team struct {
 	Cycle   string   `json:"cycle"`
-	Sprint  string   `json:"sprint"`
+	Sprint  Sprint   `json:"sprint"`
 	Name    string   `json:"name"`
 	Members []Member `json:"members"`
 }
