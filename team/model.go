@@ -16,12 +16,12 @@ type Sprint struct {
 
 func (sprint *Sprint) DaysFromStart() int {
 	today := time.Now()
-	return int(today.Sub(sprint.Start).Hours()) / 24
+	return 1 + int(today.Sub(sprint.Start).Hours())/24
 }
 
 func (sprint *Sprint) DaysToEnd() int {
 	today := time.Now()
-	return int(sprint.End.Sub(today).Hours()) / 24
+	return int(sprint.End.Sub(today).Hours())/24 - 1
 }
 
 type Assignment struct {
