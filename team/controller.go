@@ -23,10 +23,13 @@ func RunCeremony(ceremony string, team Team) {
 	fmt.Printf("Cycle   : %s%s%s\n", colorBlue, team.Cycle, colorReset)
 	fmt.Printf("Sprint  : %s%s%s\n", colorBlue, team.Sprint.Name, colorReset)
 	fmt.Printf("Ceremony: %s%s%s\n", colorBlue, ceremony, colorReset)
-	fmt.Printf("Date    : %s%v. %s%s day of the sprint. %d days to go!%s\n",
-		colorBlue, time.Now().Format("January 2, 2006"), colorRed, ToOrdinalNumber(team.Sprint.DaysFromStart()),
-		team.Sprint.DaysToEnd(), colorReset)
-	fmt.Println("--------------------------------------------------------------------------------")
+	fmt.Printf("Date    : %s%v.", colorBlue, time.Now().Format("January 2, 2006"))
+	if !team.Sprint.Passed() {
+		fmt.Printf(" %s%s day of the sprint. %d days to go!%s", colorRed, ToOrdinalNumber(team.Sprint.DaysFromStart()), team.Sprint.DaysToEnd(), colorReset)
+	} else {
+		fmt.Printf(" Sprint finished on %v.", team.Sprint.End.Format("January 2, 2006"))
+	}
+	fmt.Println("\n--------------------------------------------------------------------------------")
 
 	switch ceremony {
 	case CeremonyStandUp:

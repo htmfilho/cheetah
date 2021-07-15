@@ -21,13 +21,19 @@ func (sprint *Sprint) DaysFromStart() int {
 
 func (sprint *Sprint) DaysToEnd() int {
 	today := time.Now()
-	return int(sprint.End.Sub(today).Hours())/24 - 1
+	return int(sprint.End.Sub(today).Hours()) / 24
+}
+
+func (sprint *Sprint) Passed() bool {
+	today := time.Now()
+	return today.After(sprint.End)
 }
 
 type Assignment struct {
-	Reference string `json:"reference"`
-	Summary   string `json:"summary"`
-	Status    string `json:"status"`
+	Reference      string `json:"reference"`
+	Summary        string `json:"summary"`
+	Status         string `json:"status"`
+	Implementation string `json:"implementation"`
 }
 
 type Member struct {
