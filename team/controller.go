@@ -25,11 +25,11 @@ func RunCeremony(ceremony string, team Team) {
 	fmt.Printf("Ceremony: %s%s%s\n", colorBlue, ceremony, colorReset)
 	fmt.Printf("Date    : %s%v.", colorBlue, time.Now().Format("January 2, 2006"))
 	if !team.Sprint.Passed() {
-		fmt.Printf(" %s%s day of the sprint. %d days to go!%s", colorRed, ToOrdinalNumber(team.Sprint.DaysFromStart()), team.Sprint.DaysToEnd(), colorReset)
+		fmt.Printf(" %s%s day of the sprint. %d days to go!%s\n", colorRed, ToOrdinalNumber(team.Sprint.DaysFromStart()), team.Sprint.DaysToEnd(), colorReset)
 	} else {
-		fmt.Printf(" Sprint finished on %v.", team.Sprint.End.Format("January 2, 2006"))
+		fmt.Printf(" Sprint finished on %v.\n", team.Sprint.End.Format("January 2, 2006"))
 	}
-	fmt.Println("\n--------------------------------------------------------------------------------")
+	fmt.Println()
 
 	switch ceremony {
 	case CeremonyStandUp:
@@ -54,7 +54,7 @@ func runStandUp(team Team) {
 		for _, assignment := range member.Assignments {
 			fmt.Printf("\n - %s%s: %s%s", statusColors[assignment.Status], assignment.Reference, assignment.Summary, colorReset)
 		}
-		fmt.Print("\n................................................................................")
+		fmt.Println()
 		pause()
 	}
 }
