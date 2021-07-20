@@ -1,11 +1,16 @@
 package team
 
-import "time"
+import (
+	"fmt"
+	"time"
+)
 
 const (
 	AssignmentStatusTodo     = "todo"
 	AssignmentStatusProgress = "progress"
 	AssignmentStatusDone     = "done"
+
+	AssignmentTypeWeekly = "weekly"
 )
 
 type Sprint struct {
@@ -30,10 +35,40 @@ func (sprint *Sprint) Passed() bool {
 }
 
 type Assignment struct {
-	Reference      string `json:"reference"`
-	Summary        string `json:"summary"`
-	Status         string `json:"status"`
-	Implementation string `json:"implementation"`
+	Reference string `json:"reference"`
+	Summary   string `json:"summary"`
+	Status    string `json:"status"`
+	Type      string `json:"type"`
+}
+
+func (assignment *Assignment) Print(member Member, members []Member) {
+	statusColors := make(map[string]string)
+	statusColors[AssignmentStatusTodo] = colorReset
+	statusColors[AssignmentStatusProgress] = colorYellow
+	statusColors[AssignmentStatusDone] = colorGreen
+
+	if assignment.Type == AssignmentTypeWeekly {
+		_, week := time.Now().ISOWeek()
+		weeklyAssignedMembers := membersWeeklyAssigned(members)
+		if member.Name == weeklyAssignedMembers[week%len(weeklyAssignedMembers)].Name {
+			fmt.Printf("\n ! %s%s%s", statusColors[AssignmentStatusProgress], assignment.Summary, colorReset)
+		}
+	} else {
+		fmt.Printf("\n . %s%s: %s%s", statusColors[assignment.Status], assignment.Reference, assignment.Summary, colorReset)
+	}
+}
+
+func membersWeeklyAssigned(members []Member) []Member {
+	assignedOnes := make([]Member, 0)
+	for _, member := range members {
+		for _, assignment := range member.Assignments {
+			if assignment.Type == AssignmentTypeWeekly {
+				assignedOnes = append(assignedOnes, member)
+				break
+			}
+		}
+	}
+	return assignedOnes
 }
 
 type Member struct {
