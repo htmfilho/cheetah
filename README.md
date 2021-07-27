@@ -25,7 +25,12 @@ Cheetah is a tool that helps to manage a small pizza team.
 
 ## Usage
 
-Type:
+Run Cheetah in the same directory of the team.json file:
+
+    $ cd path/to/team/file
+    $ cheetah
+
+Further options are described in the help:
 
     $ cheetah --help
     
@@ -35,3 +40,48 @@ for a complete list of arguments. All arguments are optional, with a default val
 * `--c`: Name of the ceremony taking place. If not informed then the stand up is choosen by default because that's the most frequent ceremony.
 * `--d`: Run in debug mode, showing information that is not useful for the user but for the developer.
 
+## The Team File
+
+    {
+        "cycle": "Cycle Name",
+        "sprint": {
+            "name":  "Sprint Name",
+            "start": "2021-06-21T09:00:00-05:00",
+            "end":   "2021-06-30T12:00:00-05:00"
+        },
+        "name": "Team Name",
+        "manager": "Elvis Presley",
+        "members": [{
+            "name": "Celine Dion",
+            "assignments": [{
+                "reference": "JIRA-123",
+                "summary": "Do something very interesting",
+                "status": "todo"
+            }, {
+                "reference": "JIRA-231",
+                "summary": "Develop something amazing",
+                "status": "progress"
+            }, {
+                "summary": "It's my turn to look at server alerts.",
+                "type": "weekly"
+            }]
+        }, {
+            "name": "John Travolta",
+            "assignments": [{
+                "reference": "JIRA-333",
+                "summary": "Fix that annoying bug",
+                "status": "done"
+            }, {
+                "reference": "JIRA-365",
+                "summary": "Add tests to complete the coverage",
+                "status": "progress"
+            }, {
+                "reference": "JIRA-477",
+                "summary": "Document that complex feature",
+                "status": "todo"
+            }, {
+                "summary": "It's my turn to look at server alerts.",
+                "type": "weekly"
+            }]
+        }]
+    }
