@@ -30,6 +30,8 @@ Run Cheetah in the same directory of the team.json file:
     $ cd path/to/team/file
     $ cheetah
 
+[![asciicast](https://asciinema.org/a/NIL1nDlL5aQoim9fHz44g0eYC.svg)](https://asciinema.org/a/NIL1nDlL5aQoim9fHz44g0eYC)
+
 Further options are described in the help:
 
     $ cheetah --help
