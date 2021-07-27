@@ -47,13 +47,15 @@ func runStandUp(team Team) {
 	rand.Shuffle(len(members), func(i, j int) { members[i], members[j] = members[j], members[i] })
 
 	for _, member := range members {
-		fmt.Printf("%s%s%s is working on:", colorBlue, member.Name, colorReset)
+		fmt.Printf("%s%s%s is assigned to:", colorBlue, member.Name, colorReset)
 		for _, assignment := range member.Assignments {
 			assignment.Print(member, team.Members)
 		}
 		fmt.Println()
 		pause()
 	}
+	fmt.Printf("%s%s%s makes final considerations.\n", colorBlue, team.Manager, colorReset)
+	pause()
 }
 
 func pause() {

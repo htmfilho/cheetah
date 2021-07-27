@@ -6,6 +6,7 @@
         "end":   "2021-06-30T12:00:00-05:00"
     },
     "name": "Team Name",
+    "manager": "Elvis Presley",
     "members": [
         {
             "name": "Celine Dion",
@@ -19,6 +20,10 @@
                     "reference": "JIRA-231",
                     "summary": "Develop something amazing",
                     "status": "progress"
+                },
+                {
+                    "summary": "It's my turn to look at server alerts.",
+                    "type": "weekly"
                 }
             ]
         }, {
@@ -38,6 +43,10 @@
                     "reference": "JIRA-477",
                     "summary": "Document that complex feature",
                     "status": "todo"
+                },
+                {
+                    "summary": "It's my turn to look at server alerts.",
+                    "type": "weekly"
                 }
             ]
         }

@@ -80,5 +80,6 @@ type Team struct {
 	Cycle   string   `json:"cycle"`
 	Sprint  Sprint   `json:"sprint"`
 	Name    string   `json:"name"`
+	Manager string   `json:"manager"`
 	Members []Member `json:"members"`
 }
