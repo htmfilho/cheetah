@@ -29,9 +29,19 @@ func (sprint *Sprint) DaysToEnd() int {
 	return int(sprint.End.Sub(today).Hours()) / 24
 }
 
+func (sprint *Sprint) DaysToStart() int {
+	today := time.Now()
+	return int(sprint.Start.Sub(today).Hours()) / 24
+}
+
 func (sprint *Sprint) Passed() bool {
 	today := time.Now()
 	return today.After(sprint.End)
+}
+
+func (sprint *Sprint) Started() bool {
+	today := time.Now()
+	return !today.Before(sprint.Start)
 }
 
 type Assignment struct {

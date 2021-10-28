@@ -24,10 +24,12 @@ func RunCeremony(ceremony string, team Team) {
 	fmt.Printf("Sprint  : %s%s%s\n", colorBlue, team.Sprint.Name, colorReset)
 	fmt.Printf("Ceremony: %s%s%s\n", colorBlue, ceremony, colorReset)
 	fmt.Printf("Date    : %s%v.", colorBlue, time.Now().Format("January 2, 2006"))
-	if !team.Sprint.Passed() {
+	if team.Sprint.Passed() {
+		fmt.Printf(" Sprint finished on %v.\n", team.Sprint.End.Format("January 2, 2006"))
+	} else if team.Sprint.Started() {
 		fmt.Printf(" %s%s day of the sprint. %d days to go!%s\n", colorRed, ToOrdinalNumber(team.Sprint.DaysFromStart()), team.Sprint.DaysToEnd(), colorReset)
 	} else {
-		fmt.Printf(" Sprint finished on %v.\n", team.Sprint.End.Format("January 2, 2006"))
+		fmt.Printf(" %d days to start the sprint.\n", team.Sprint.DaysToStart())
 	}
 	fmt.Println()
 
