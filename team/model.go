@@ -2,6 +2,7 @@ package team
 
 import (
 	"fmt"
+	"math/rand"
 	"time"
 )
 
@@ -86,10 +87,20 @@ type Member struct {
 	Assignments []Assignment `json:"assignments"`
 }
 
+type Manager struct {
+	Name      string   `json:"name"`
+	Greetings []string `json:"greetings"`
+}
+
+func (manager *Manager) GetRandomGreeting() string {
+	max := len(manager.Greetings)
+	return manager.Greetings[rand.Intn(max)]
+}
+
 type Team struct {
 	Cycle   string   `json:"cycle"`
 	Sprint  Sprint   `json:"sprint"`
 	Name    string   `json:"name"`
-	Manager string   `json:"manager"`
+	Manager Manager  `json:"manager"`
 	Members []Member `json:"members"`
 }

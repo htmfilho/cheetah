@@ -61,7 +61,7 @@ func runStandUp(team Team) {
 		fmt.Println()
 		pause()
 	}
-	fmt.Printf("%s%s%s makes final considerations.\n", colorBlue, team.Manager, colorReset)
+	fmt.Printf("%s%s %s%s\n", colorBlue, team.Manager.Name, team.Manager.GetRandomGreeting(), colorReset)
 	pause()
 }
 

@@ -6,7 +6,19 @@
         "end":   "2021-06-30T12:00:00-05:00"
     },
     "name": "Team Name",
-    "manager": "Elvis Presley",
+    "manager": {
+        "name": "Elvis Presley",
+        "greetings": [
+            "can you share your wisdom?",
+            "have you contemplated the universe today?",
+            "might or might not have something interesting to say.",
+            "needs our attention.",
+            "sometimes has nothing to say.",
+            "is our boss, we should listen to him.",
+            "might have missed most of this meeting, but that's ok.",
+            "is here?"
+        ]
+    },
     "members": [
         {
             "name": "Celine Dion",
@@ -49,6 +61,9 @@
                     "type": "weekly"
                 }
             ]
+        }, {
+            "name": "David Copperfield",
+            "assignments": []
         }
     ]
 }
