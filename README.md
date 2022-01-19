@@ -15,13 +15,17 @@ Cheetah is a tool that helps to manage a small pizza team.
        $ cd path/to/cheetah
        $ go build cmd/terminal/cheetah.go
 
-4. Install the app, making it available in any terminal:
+4. Run the app:
+
+       $ ./cheetah [-f team.json]
+
+6. Install the app, making it available in any terminal:
 
        $ go install cmd/terminal/cheetah.go
 
-5. Copy the file `team.json.example` to a convinient place and rename it to `team.json`
+7. Copy the file `team.json.example` to a convinient place and rename it to `team.json`
 
-6. Update the `team.json` file with information about the sprint.
+8. Update the `team.json` file with information about the sprint.
 
 ## Usage
 

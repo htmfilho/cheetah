@@ -25,11 +25,11 @@ func RunCeremony(ceremony string, team Team) {
 	fmt.Printf("Ceremony: %s%s%s\n", colorBlue, ceremony, colorReset)
 	fmt.Printf("Date    : %s%v.", colorBlue, time.Now().Format("January 2, 2006"))
 	if team.Sprint.Passed() {
-		fmt.Printf(" Sprint finished on %v.\n", team.Sprint.End.Format("January 2, 2006"))
+		fmt.Printf(" Sprint finished on %v.%s\n", team.Sprint.End.Format("January 2, 2006"), colorReset)
 	} else if team.Sprint.Started() {
 		fmt.Printf(" %s%s day of the sprint. %d days to go!%s\n", colorRed, ToOrdinalNumber(team.Sprint.DaysFromStart()), team.Sprint.DaysToEnd(), colorReset)
 	} else {
-		fmt.Printf(" %d days to start the sprint.\n", team.Sprint.DaysToStart())
+		fmt.Printf(" %d days to start the sprint.%s\n", team.Sprint.DaysToStart(), colorReset)
 	}
 	fmt.Println()
 
@@ -50,13 +50,14 @@ func runStandUp(team Team) {
 
 	for _, member := range members {
 		if len(member.Assignments) == 0 {
-			continue
+			fmt.Printf("Good morning %s%s%s!", colorBlue, member.Name, colorReset)
+		} else {
+			fmt.Printf("%s%s%s is assigned to:", colorBlue, member.Name, colorReset)
+			for _, assignment := range member.Assignments {
+				assignment.Print(member, team.Members)
+			}
 		}
 
-		fmt.Printf("%s%s%s is assigned to:", colorBlue, member.Name, colorReset)
-		for _, assignment := range member.Assignments {
-			assignment.Print(member, team.Members)
-		}
 		fmt.Println()
 		pause()
 	}
